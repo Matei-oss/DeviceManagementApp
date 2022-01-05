@@ -4,6 +4,7 @@ using DeviceManagerBackend.Repositories;
 using DeviceManagerBackend.Repositories;
 using DeviceManagerBackend.Entities;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace DeviceManagerBackend.Repositories
 {
@@ -11,14 +12,17 @@ namespace DeviceManagerBackend.Repositories
     {
         private readonly ApplicationDbContext _context;
 
-        public RoomRepository(ApplicationDbContext context)
+        private readonly IMapper _mapper;
+        public RoomRepository(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public void AddRoom(Room inputRoom)
+        public void AddRoom(CreateRoom inputRoom)
         {
-            _context.Rooms.Add(inputRoom);
+            var roomAdded = _mapper.Map<Room>(inputRoom);
+            _context.Rooms.Add(roomAdded);
             _context.SaveChanges();
         }
 

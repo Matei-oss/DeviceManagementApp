@@ -3,6 +3,7 @@ using DeviceManagerBackend.Repositories;
 using Microsoft.EntityFrameworkCore;
 using DeviceManagerBackend.Repositories.Interfaces;
 using DeviceManagerBackend.Entities;
+using AutoMapper;
 
 namespace DeviceManagerBackend.Services
 {
@@ -10,6 +11,7 @@ namespace DeviceManagerBackend.Services
     {
         public IRoomRepository _roomRepository;
 
+        
         public RoomService(IRoomRepository roomRepository)
         {
             _roomRepository = roomRepository;
@@ -25,8 +27,9 @@ namespace DeviceManagerBackend.Services
             var roomReturned = _roomRepository.GetRoomById(id);
             return roomReturned;
         }
-        public void CreateRoom(Room inputRoom)
+        public void CreateRoom(CreateRoom inputRoom)
         {
+            
             _roomRepository.AddRoom(inputRoom);
         }
 

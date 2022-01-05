@@ -33,7 +33,7 @@ namespace DeviceManagerBackend.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddRoom(Room inputRoom)
+        public IActionResult AddRoom(CreateRoom inputRoom)
         {
             _roomService.CreateRoom(inputRoom);
             return Ok(inputRoom);

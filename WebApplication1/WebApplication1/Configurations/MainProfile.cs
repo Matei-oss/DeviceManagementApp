@@ -20,6 +20,8 @@ namespace DeviceManagerBackend.Configurations
             CreateMap<User, UpdatePassword>().ReverseMap();
 
             CreateMap<User, UpdateEmail>().ReverseMap();
+
+            CreateMap<Room, CreateRoom>().ReverseMap();
         }
     }
 }
