@@ -37,5 +37,10 @@ namespace DeviceManagerBackend.Services
         {
             _roomRepository.DeleteRoom(id);
         }
+
+        public void AssignCapacity(int id, int capacity)
+        {
+            _roomRepository.AssignCapacity(id, capacity);
+        }
     }
 }

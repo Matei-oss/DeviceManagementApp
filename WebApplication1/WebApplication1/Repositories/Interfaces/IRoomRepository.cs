@@ -9,5 +9,7 @@ namespace DeviceManagerBackend.Repositories.Interfaces
         public List<Room> GetRooms();
         public void AddRoom(CreateRoom inputRoom);
         public void DeleteRoom(int id);
+
+        public void AssignCapacity(int id, int capacity);
     }
 }

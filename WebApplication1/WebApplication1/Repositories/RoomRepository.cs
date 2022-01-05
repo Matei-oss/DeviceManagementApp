@@ -43,5 +43,13 @@ namespace DeviceManagerBackend.Repositories
             return _context.Rooms.ToList();
         }
 
+        public void AssignCapacity(int id, int capacity)
+        {
+            var room = GetRoomById(id);
+
+            room.Capacity = capacity;
+            _context.SaveChanges();
+        }
+
     }
 }
