@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DeviceManagerBackend.Constants;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,7 +9,7 @@ namespace DeviceManagerBackend.Attributes
 {
     public class AuthorizeAttribute : Attribute, IAuthorizationFilter
     {
-        public string Role { get; set; }
+        public Roles Role { get; set; }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             try
@@ -33,7 +34,7 @@ namespace DeviceManagerBackend.Attributes
 
             var role = jwtToken.Claims.First(x => x.Type == "role").Value;
 
-            if (Role != role)
+            if (Role.ToString() != role)
             {
                 context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
             }

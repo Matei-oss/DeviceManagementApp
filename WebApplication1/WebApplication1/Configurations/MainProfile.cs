@@ -22,6 +22,8 @@ namespace DeviceManagerBackend.Configurations
             CreateMap<User, UpdateEmail>().ReverseMap();
 
             CreateMap<Room, CreateRoom>().ReverseMap();
+
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }

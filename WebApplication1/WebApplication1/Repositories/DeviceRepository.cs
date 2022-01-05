@@ -2,6 +2,7 @@
 using DeviceManagerBackend.Models;
 using DeviceManagerBackend.Entities;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeviceManagerBackend.Repositories
 {
@@ -35,7 +36,7 @@ namespace DeviceManagerBackend.Repositories
 
         public Device GetDeviceById(int id)
         {
-            return _context.Devices.FirstOrDefault(x =>x.Id == id);
+            return _context.Devices.Include(x => x.Room).FirstOrDefault(x =>x.Id == id);
         }
 
         public List<Device> GetDevices()

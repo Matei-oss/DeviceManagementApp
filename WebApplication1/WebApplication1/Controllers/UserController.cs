@@ -54,10 +54,18 @@ namespace DeviceManagerBackend.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddUser(User inputUser)
+        public IActionResult AddUser(UserDTO inputUser)
         {
-            _userService.AddUser(inputUser);
-            return Ok(inputUser);
+            try
+            {
+                _userService.AddUser(inputUser);
+                return Ok(inputUser);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+           
         }
 
         [HttpPatch("password/{id}")]

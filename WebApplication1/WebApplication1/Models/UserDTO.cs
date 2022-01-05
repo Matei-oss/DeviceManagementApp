@@ -1,20 +1,16 @@
-﻿using DeviceManagerBackend.Constants;
-
-namespace DeviceManagerBackend.Entities
+﻿namespace DeviceManagerBackend.Models
 {
-    public class User
+    public class UserDTO
     {
-    
         public int Id { get; set; }
 
         public string FirstName { get; set; }
-   
+
         public string LastName { get; set; }
-        
+
         public string EmailAddress { get; set; }
 
         public string Password { get; set; }
-        public Roles Role { get; set; }
-
+        public string Role { get; set; }
     }
 }

@@ -4,10 +4,11 @@ using DeviceManagerBackend.Models;
 using DeviceManagerBackend.Services;
 using DeviceManagerBackend.Attributes;
 using DeviceManagerBackend.Entities;
+using DeviceManagerBackend.Constants;
 
 namespace DeviceManagerBackend.Controllers
 {
-    //[Authorize(Role = "Administrator")]
+    [Authorize(Role = Roles.Administrator)]
     [Route("api/[controller]")]
     [ApiController]
     public class DevicesController : ControllerBase
