@@ -28,6 +28,9 @@ builder.Services.AddAutoMapper(typeof(MainProfile));
 builder.Services.AddScoped<DeviceService>();
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 
+builder.Services.AddScoped<SpaceService>();
+builder.Services.AddScoped<ISpaceRepository, SpaceRepository>();
+
 builder.Services.AddScoped<RoomService>();
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 
