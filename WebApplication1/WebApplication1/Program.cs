@@ -22,6 +22,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddAutoMapper(typeof(MainProfile));
 
+//builder.Services.AddScoped<SpaceService>();
+//builder.Services.AddScoped<ISpaceRepository, SpaceRepository>();
+
 builder.Services.AddScoped<DeviceService>();
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 
