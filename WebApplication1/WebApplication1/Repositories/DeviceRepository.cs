@@ -39,10 +39,15 @@ namespace DeviceManagerBackend.Repositories
             return _context.Devices.Include(x => x.Room).FirstOrDefault(x =>x.Id == id);
         }
 
-        public List<Device> GetDevices()
-        {
-            return _context.Devices.ToList();
-        }
+        //public List<Device> GetDevices(bool onlyUnassignedDevices)
+        //{ 
+        //    var devices = _context.Devices.Include(x => x.Room);
+
+        //    if (onlyUnassignedDevices)
+        //    {
+        //        devices = devices.Where(x => x.Room?.Id == 0);
+        //    }
+        //}
 
         public void AssignDevice(int deviceId, int roomId)
         {
@@ -54,11 +59,16 @@ namespace DeviceManagerBackend.Repositories
             _context.SaveChanges();
         }
 
-        //public void UpdateDevice(Device inputDevice, int id)
-        //{
-        //    var device = _context.Devices.FirstOrDefault(x => x.Id == id);
-        //    _context.Update(inputDevice);
-        //    _context.SaveChanges();
-        //}
+        public void UpdateDevice(UpdateDevice updateDevice, int id)
+        {
+            var deviceReturned = GetDeviceById(id);
+
+            var mappedDevice = _mapper.Map<Device>(updateDevice);
+
+            deviceReturned.Name = mappedDevice.Name;
+            deviceReturned.MacAddress = mappedDevice.MacAddress;
+            deviceReturned.FirmwareVersion = mappedDevice.FirmwareVersion;  
+            _context.SaveChanges();
+        }
     }
 }

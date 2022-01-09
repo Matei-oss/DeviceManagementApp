@@ -8,7 +8,7 @@ using DeviceManagerBackend.Constants;
 
 namespace DeviceManagerBackend.Controllers
 {
-    [Authorize(Role = Roles.Administrator)]
+    //[Authorize(Role = Roles.Administrator)]
     [Route("api/[controller]")]
     [ApiController]
     public class DevicesController : ControllerBase
@@ -21,12 +21,12 @@ namespace DeviceManagerBackend.Controllers
         }
 
         [HttpGet]
-        public List<Device> GetDevices()
-        {
+        //public List<Device> GetDevices(bool onlyUnassignedDevices)
+        //{
             
-            var devices = _deviceService.GetDevices();
-            return devices;
-        }
+        //    var devices = _deviceService.GetDevices(onlyUnassignedDevices);
+        //    return devices;
+        //}
 
         [HttpGet("{id}")]
 
@@ -66,16 +66,14 @@ namespace DeviceManagerBackend.Controllers
             _deviceService.AssignDevice(deviceId, roomId);
             return Ok();
         }
+        
+        [HttpPatch("{id}")]
 
-        //[HttpPatch("{id}")]
-
-        //public IActionResult UpdateDevice(Device inputDevice,int id)
-        //{
-        //    _deviceService.UpdateDevice(inputDevice, id);
-        //    return Ok();
-        //}
-
-       // [HttpPut("device/{deviceId}/room/{roomId}")]
+        public IActionResult UpdateDevice(UpdateDevice updateDevice, int id)
+        {
+            _deviceService.UpdateDevice(updateDevice, id);
+            return Ok();
+        }
 
     }
 }

@@ -14,11 +14,11 @@ namespace DeviceManagerBackend.Services
             _deviceRepository = deviceRepository;
         } 
 
-        public List<Device> GetDevices()
-        {
-            var devicesReturned = _deviceRepository.GetDevices();
-            return devicesReturned;
-        }
+        //public List<Device> GetDevices(bool onlyUnassignedDevices)
+        //{
+        //    var devicesReturned = _deviceRepository.GetDevices(onlyUnassignedDevices);
+        //    return devicesReturned;
+        //}
         public Device GetDeviceById(int id)
         {
             var deviceReturned = _deviceRepository.GetDeviceById(id);
@@ -41,5 +41,9 @@ namespace DeviceManagerBackend.Services
             _deviceRepository.AssignDevice(deviceId, roomId);
         }
 
+        public void UpdateDevice(UpdateDevice updateDevice, int id)
+        {
+            _deviceRepository.UpdateDevice(updateDevice, id);
+        }
     }
 }
