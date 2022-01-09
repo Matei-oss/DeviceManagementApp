@@ -30,5 +30,10 @@ namespace DeviceManagerBackend.Repositories
             _context.Spaces.Remove(space);
             _context.SaveChanges();
         }
+
+        public List<Space> GetSpaces()
+        {
+            return _context.Spaces.ToList();
+        }
     }
 }

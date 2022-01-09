@@ -1,4 +1,5 @@
-﻿using DeviceManagerBackend.Models;
+﻿using DeviceManagerBackend.Entities;
+using DeviceManagerBackend.Models;
 using DeviceManagerBackend.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,6 +36,13 @@ namespace DeviceManagerBackend.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpGet]
+
+        public List<Space> GetSpaces()
+        {
+            return _spaceService.GetSpaces();
         }
     }
 }

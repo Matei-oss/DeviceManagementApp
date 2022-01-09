@@ -1,4 +1,5 @@
-﻿using DeviceManagerBackend.Models;
+﻿using DeviceManagerBackend.Entities;
+using DeviceManagerBackend.Models;
 using DeviceManagerBackend.Repositories.Interfaces;
 
 namespace DeviceManagerBackend.Services
@@ -20,6 +21,11 @@ namespace DeviceManagerBackend.Services
         public void DeleteSpace(int id)
         {
             _spaceRepository.DeleteSpace(id);
+        }
+
+        public List<Space> GetSpaces()
+        {
+           return  _spaceRepository.GetSpaces();
         }
     }
 }
