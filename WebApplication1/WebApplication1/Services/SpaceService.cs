@@ -27,5 +27,10 @@ namespace DeviceManagerBackend.Services
         {
            return  _spaceRepository.GetSpaces();
         }
+
+        public SpaceModel GetSpaceById(int id)
+        {
+            return _spaceRepository.GetSpaceById(id);
+        }
     }
 }

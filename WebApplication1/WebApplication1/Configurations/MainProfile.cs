@@ -30,6 +30,8 @@ namespace DeviceManagerBackend.Configurations
             CreateMap<Room, UpdateRoom>().ReverseMap();
 
             CreateMap<Space, CreateSpace>().ReverseMap();
+
+            CreateMap<Space, SpaceModel>().ReverseMap();
         }
     }
 }

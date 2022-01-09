@@ -39,10 +39,16 @@ namespace DeviceManagerBackend.Controllers
         }
 
         [HttpGet]
-
         public List<Space> GetSpaces()
         {
             return _spaceService.GetSpaces();
+        }
+
+        [HttpGet("{id}")]
+
+        public SpaceModel GetSpaceById(int id)
+        {
+            return _spaceService.GetSpaceById(id);
         }
     }
 }
