@@ -16,5 +16,10 @@ namespace DeviceManagerBackend.Services
         {
             _spaceRepository.CreateSpace(inputSpace);
         }
+
+        public void DeleteSpace(int id)
+        {
+            _spaceRepository.DeleteSpace(id);
+        }
     }
 }

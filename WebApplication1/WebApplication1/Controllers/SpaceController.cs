@@ -21,5 +21,20 @@ namespace DeviceManagerBackend.Controllers
             _spaceService.CreateSpace(inputSpace);
             return Ok(inputSpace);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteSpace(int id)
+        {
+            try
+            {
+                _spaceService.DeleteSpace(id);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
     }
 }

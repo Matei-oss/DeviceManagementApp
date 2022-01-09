@@ -23,5 +23,12 @@ namespace DeviceManagerBackend.Repositories
             _context.Spaces.Add(spaceAdded);
             _context.SaveChanges();
         }
+
+        public void DeleteSpace(int id)
+        {
+            var space = _context.Spaces.FirstOrDefault(x => x.Id == id);
+            _context.Spaces.Remove(space);
+            _context.SaveChanges();
+        }
     }
 }
