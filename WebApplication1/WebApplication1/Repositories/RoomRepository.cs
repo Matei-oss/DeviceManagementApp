@@ -51,5 +51,17 @@ namespace DeviceManagerBackend.Repositories
             _context.SaveChanges();
         }
 
+        public void UpdateRoom(UpdateRoom updateRoom, int id)
+        {
+            var roomReturned = GetRoomById(id);
+
+            var roomMapped = _mapper.Map<Room>(updateRoom);
+
+            roomReturned.Name = roomMapped.Name;
+            roomReturned.Type = roomMapped.Type;
+            roomReturned.Capacity = roomMapped.Capacity;
+
+            _context.SaveChanges();
+        }
     }
 }

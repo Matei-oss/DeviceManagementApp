@@ -40,13 +40,15 @@ namespace DeviceManagerBackend.Repositories
         }
 
         //public List<Device> GetDevices(bool onlyUnassignedDevices)
-        //{ 
+        //{
         //    var devices = _context.Devices.Include(x => x.Room);
 
         //    if (onlyUnassignedDevices)
         //    {
-        //        devices = devices.Where(x => x.Room?.Id == 0);
+        //        devices = devices.Where(x => x.Room.Id == 0);
         //    }
+
+        //    return devices;
         //}
 
         public void AssignDevice(int deviceId, int roomId)

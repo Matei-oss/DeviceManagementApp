@@ -60,5 +60,13 @@ namespace DeviceManagerBackend.Controllers
             _roomService.AssignCapacity(id, capacity);
             return Ok();
         }
+
+        [HttpPatch("room/id")]
+
+        public IActionResult UpdateRoom(UpdateRoom updateRoom, int id)
+        {
+            _roomService.UpdateRoom(updateRoom, id);
+            return Ok();
+        }
     }
 }

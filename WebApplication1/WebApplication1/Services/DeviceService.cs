@@ -12,7 +12,7 @@ namespace DeviceManagerBackend.Services
         public DeviceService(IDeviceRepository deviceRepository)
         {
             _deviceRepository = deviceRepository;
-        } 
+        }
 
         //public List<Device> GetDevices(bool onlyUnassignedDevices)
         //{
