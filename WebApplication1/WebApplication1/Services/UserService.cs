@@ -28,15 +28,7 @@ namespace DeviceManagerBackend.Services
 
         public void AddUser(UserDTO inputUser)
         {
-            var userEntity = _userRepo.GetUserByEmailAddress(inputUser.EmailAddress);
-
-            var userEntityMapped = _mapper.Map<User>(userEntity);
-
-            if(userEntity != null)
-            {
-                throw new Exception("User already exists!");
-            }
-            _userRepo.AddUser(userEntityMapped);
+            _userRepo.AddUser(inputUser);
         }
 
         public void DeleteUser(int id)

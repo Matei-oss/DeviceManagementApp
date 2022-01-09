@@ -10,10 +10,11 @@ namespace DeviceManagerBackend.Repositories
     {
         private readonly ApplicationDbContext _context;
 
-       
-        public UserRepository(ApplicationDbContext context)
+        private readonly IMapper _mapper;
+        public UserRepository(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;   
         }
         public User GetUserByEmailAddress(string emailAddress)
         {
@@ -32,9 +33,17 @@ namespace DeviceManagerBackend.Repositories
             _context.SaveChanges();
         }
 
-        public void AddUser(User inputUser)
+        public void AddUser(UserDTO inputUser)
         {
-            _context.Users.Add(inputUser);
+            var userEntity = GetUserByEmailAddress(inputUser.EmailAddress);
+
+            var userEntityMapped = _mapper.Map<User>(inputUser);
+
+            if (userEntity != null)
+            {
+                throw new Exception("User already exists!");
+            }
+            _context.Users.Add(userEntityMapped);
             _context.SaveChanges();
         }
 

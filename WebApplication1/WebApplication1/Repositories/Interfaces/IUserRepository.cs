@@ -9,7 +9,7 @@ namespace DeviceManagerBackend.Repositories.Interfaces
         public User GetUserByEmailAddress(string emailAddress);
         public User GetUserById(int id);
         public void DeleteUser(int id);
-        public void AddUser(User inputUser);
+        public void AddUser(UserDTO inputUser);
 
         public void UpdatePassword(UpdatePassword inputUser, int id);
 
