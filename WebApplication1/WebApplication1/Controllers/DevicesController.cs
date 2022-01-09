@@ -21,12 +21,12 @@ namespace DeviceManagerBackend.Controllers
         }
 
         [HttpGet]
-        //public List<Device> GetDevices(bool onlyUnassignedDevices)
-        //{
+        public List<Device> GetDevices(bool onlyUnassignedDevices)
+        {
 
-        //    var devices = _deviceService.GetDevices(onlyUnassignedDevices);
-        //    return devices;
-        //}
+            var devices = _deviceService.GetDevices(onlyUnassignedDevices);
+            return devices;
+        }
 
         [HttpGet("{id}")]
 

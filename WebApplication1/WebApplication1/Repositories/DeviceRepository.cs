@@ -39,17 +39,17 @@ namespace DeviceManagerBackend.Repositories
             return _context.Devices.Include(x => x.Room).FirstOrDefault(x =>x.Id == id);
         }
 
-        //public List<Device> GetDevices(bool onlyUnassignedDevices)
-        //{
-        //    var devices = _context.Devices.Include(x => x.Room);
+        public List<Device> GetDevices(bool onlyUnassignedDevices)
+        {
+            var devices = _context.Devices.Include(x => x.Room).ToList();
 
-        //    if (onlyUnassignedDevices)
-        //    {
-        //        devices = devices.Where(x => x.Room.Id == 0);
-        //    }
+            if (onlyUnassignedDevices)
+            {
+                devices = devices.Where(x => x.Room == null).ToList();
+            }
 
-        //    return devices;
-        //}
+            return devices;
+        }
 
         public void AssignDevice(int deviceId, int roomId)
         {

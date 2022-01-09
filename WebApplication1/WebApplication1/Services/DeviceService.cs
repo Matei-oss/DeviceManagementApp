@@ -14,11 +14,11 @@ namespace DeviceManagerBackend.Services
             _deviceRepository = deviceRepository;
         }
 
-        //public List<Device> GetDevices(bool onlyUnassignedDevices)
-        //{
-        //    var devicesReturned = _deviceRepository.GetDevices(onlyUnassignedDevices);
-        //    return devicesReturned;
-        //}
+        public List<Device> GetDevices(bool onlyUnassignedDevices)
+        {
+            var devicesReturned = _deviceRepository.GetDevices(onlyUnassignedDevices);
+            return devicesReturned;
+        }
         public Device GetDeviceById(int id)
         {
             var deviceReturned = _deviceRepository.GetDeviceById(id);
