@@ -7,6 +7,7 @@ namespace DeviceManagerBackend.Entities
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Type { get; set; }
         public List<Room> Rooms { get; set; } = new List<Room>();
     }
 }
