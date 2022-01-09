@@ -16,7 +16,7 @@ namespace DeviceManagerBackend.Repositories
         public DbSet<Device> Devices { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<User> Users { get; set; }
-       
+        public DbSet<Space> Spaces { get; set; }
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<Room>().HasMany(x => x.);
