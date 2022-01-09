@@ -1,12 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DeviceManagerBackend.Models;
+using DeviceManagerBackend.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DeviceManagerBackend.Controllers
 {
-    public class SpaceController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class SpaceController : ControllerBase
     {
-        public IActionResult Index()
+        private SpaceService _spaceService;
+        
+        public SpaceController(SpaceService spaceService)
         {
-            return View();
+            _spaceService = spaceService;
+        }
+
+        [HttpPost]
+        public IActionResult CreateSpace(CreateSpace inputSpace)
+        {
+            _spaceService.CreateSpace(inputSpace);
+            return Ok(inputSpace);
         }
     }
 }
