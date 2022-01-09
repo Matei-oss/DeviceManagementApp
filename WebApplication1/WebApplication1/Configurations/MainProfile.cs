@@ -32,6 +32,8 @@ namespace DeviceManagerBackend.Configurations
             CreateMap<Space, CreateSpace>().ReverseMap();
 
             CreateMap<Space, SpaceModel>().ReverseMap();
+
+            CreateMap<Space, UpdateSpace>().ReverseMap();
         }
     }
 }

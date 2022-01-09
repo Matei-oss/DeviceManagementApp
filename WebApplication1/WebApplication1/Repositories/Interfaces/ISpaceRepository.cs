@@ -9,5 +9,6 @@ namespace DeviceManagerBackend.Repositories.Interfaces
         public void DeleteSpace(int id);
         public List<Space> GetSpaces();
         public SpaceModel GetSpaceById(int id);
+        public void UpdateSpace(UpdateSpace updateSpace, int id);
     }
 }

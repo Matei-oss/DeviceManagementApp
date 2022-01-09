@@ -50,5 +50,12 @@ namespace DeviceManagerBackend.Controllers
         {
             return _spaceService.GetSpaceById(id);
         }
+
+        [HttpPatch("space/{id}")]
+        public IActionResult UpdateSpace(UpdateSpace updateSpace, int id)
+        {
+            _spaceService.UpdateSpace(updateSpace, id);
+            return Ok(updateSpace);
+        }
     }
 }
