@@ -57,5 +57,13 @@ namespace DeviceManagerBackend.Controllers
             _spaceService.UpdateSpace(updateSpace, id);
             return Ok(updateSpace);
         }
+
+        [HttpPut("space/{spaceId}/user/{userId}")]
+
+        public IActionResult AssignSpace(int spaceId, int userId)
+        {
+            _spaceService.AssignSpace(spaceId, userId);
+            return Ok();
+        }
     }
 }

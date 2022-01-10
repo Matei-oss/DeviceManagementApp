@@ -3,6 +3,7 @@ using DeviceManagerBackend.Repositories.Interfaces;
 using DeviceManagerBackend.Repositories;
 using DeviceManagerBackend.Entities;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeviceManagerBackend.Repositories
 {
@@ -23,7 +24,7 @@ namespace DeviceManagerBackend.Repositories
 
         public List<User> GetAllUsers()
         {
-            return _context.Users.ToList();
+            return _context.Users.Include(x => x.Spaces).ToList();
         }
 
         public void DeleteUser(int id)

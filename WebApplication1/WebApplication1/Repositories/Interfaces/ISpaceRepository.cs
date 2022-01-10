@@ -10,5 +10,6 @@ namespace DeviceManagerBackend.Repositories.Interfaces
         public List<Space> GetSpaces();
         public Space GetSpaceById(int id);
         public void UpdateSpace(UpdateSpace updateSpace, int id);
+        public void AssignSpace(int spaceId, int userId);  
     }
 }

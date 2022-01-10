@@ -12,10 +12,12 @@ namespace DeviceManagerBackend.Repositories
 
         private readonly IMapper _mapper;
 
-        public SpaceRepository(ApplicationDbContext context, IMapper mapper)
+        private readonly IUserRepository _userRepository;
+        public SpaceRepository(ApplicationDbContext context, IMapper mapper, IUserRepository userRepository)
         {
             _context = context;
             _mapper = mapper;
+            _userRepository = userRepository;
         }
 
         public void CreateSpace(CreateSpace inputSpace)
@@ -55,6 +57,16 @@ namespace DeviceManagerBackend.Repositories
             spaceReturned.Type = spaceMapped.Type;
             _context.SaveChanges();
 
+        }
+
+        public void AssignSpace(int spaceId, int userId)
+        {
+            var space = GetSpaceById(spaceId);
+            var user = _userRepository.GetUserById(userId);
+
+            user.Spaces.Add(space);
+            space.User = user;
+            _context.SaveChanges();
         }
     }
 }

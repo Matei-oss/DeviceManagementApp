@@ -45,5 +45,10 @@ namespace DeviceManagerBackend.Services
         {
             _spaceRepository.UpdateSpace(updateSpace, id);
         }
+
+        public void AssignSpace(int spaceId, int userId)
+        {
+            _spaceRepository.AssignSpace(spaceId, userId);
+        }
     }
 }
