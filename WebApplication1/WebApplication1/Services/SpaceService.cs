@@ -1,4 +1,5 @@
-﻿using DeviceManagerBackend.Entities;
+﻿using AutoMapper;
+using DeviceManagerBackend.Entities;
 using DeviceManagerBackend.Models;
 using DeviceManagerBackend.Repositories.Interfaces;
 
@@ -8,9 +9,12 @@ namespace DeviceManagerBackend.Services
     {
         public ISpaceRepository _spaceRepository;
 
-        public SpaceService(ISpaceRepository spaceRepository)
+        private readonly IMapper _mapper;
+
+        public SpaceService(ISpaceRepository spaceRepository, IMapper mapper)
         {
             _spaceRepository = spaceRepository;
+            _mapper = mapper;
         }
 
         public void CreateSpace(CreateSpace inputSpace)
@@ -30,7 +34,11 @@ namespace DeviceManagerBackend.Services
 
         public SpaceModel GetSpaceById(int id)
         {
-            return _spaceRepository.GetSpaceById(id);
+            var space = _spaceRepository.GetSpaceById(id);
+
+            var mappedSpace = _mapper.Map<SpaceModel>(space);
+
+            return mappedSpace;
         }
 
         public void UpdateSpace(UpdateSpace updateSpace, int id)

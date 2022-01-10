@@ -3,12 +3,17 @@ using DeviceManagerBackend.Repositories;
 using Microsoft.EntityFrameworkCore;
 using DeviceManagerBackend.Repositories.Interfaces;
 using DeviceManagerBackend.Entities;
+using AutoMapper;
 
 namespace DeviceManagerBackend.Services
 {
     public class DeviceService
     {
         public IDeviceRepository _deviceRepository;
+
+        private readonly IMapper _mapper;
+
+
         public DeviceService(IDeviceRepository deviceRepository)
         {
             _deviceRepository = deviceRepository;

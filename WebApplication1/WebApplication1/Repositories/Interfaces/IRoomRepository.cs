@@ -10,6 +10,7 @@ namespace DeviceManagerBackend.Repositories.Interfaces
         public void AddRoom(CreateRoom inputRoom);
         public void DeleteRoom(int id);
         public void AssignCapacity(int id, int capacity);
-        public void UpdateRoom(UpdateRoom updateRoom, int id);  
+        public void UpdateRoom(UpdateRoom updateRoom, int id);
+        public void AssignRoom(int roomId, int spaceId);
     }
 }

@@ -47,5 +47,10 @@ namespace DeviceManagerBackend.Services
         {
             _roomRepository.UpdateRoom(updateRoom, id);
         }
+
+        public void AssignRoom(int roomId, int spaceId)
+        {
+            _roomRepository.AssignRoom(roomId, spaceId);
+        }
     }
 }

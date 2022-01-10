@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeviceManagerBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220109133607_added_space_model")]
+    [Migration("20220109152203_added_space_model")]
     partial class added_space_model
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -147,9 +147,11 @@ namespace DeviceManagerBackend.Migrations
 
             modelBuilder.Entity("DeviceManagerBackend.Entities.Room", b =>
                 {
-                    b.HasOne("DeviceManagerBackend.Entities.Space", null)
+                    b.HasOne("DeviceManagerBackend.Entities.Space", "Space")
                         .WithMany("Rooms")
                         .HasForeignKey("SpaceId");
+
+                    b.Navigation("Space");
                 });
 
             modelBuilder.Entity("DeviceManagerBackend.Entities.Room", b =>

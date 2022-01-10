@@ -37,14 +37,12 @@ namespace DeviceManagerBackend.Repositories
             return _context.Spaces.ToList();
         }
 
-        public SpaceModel GetSpaceById(int id)
+        public Space GetSpaceById(int id)
         {
 
             var returnedSpace = _context.Spaces.Include(x => x.Rooms).FirstOrDefault(x => x.Id ==id);
 
-            var mappedSpace = _mapper.Map<SpaceModel>(returnedSpace);
-
-            return mappedSpace;
+            return returnedSpace;
         }
 
         public void UpdateSpace(UpdateSpace updateSpace, int id)

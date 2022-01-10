@@ -145,9 +145,11 @@ namespace DeviceManagerBackend.Migrations
 
             modelBuilder.Entity("DeviceManagerBackend.Entities.Room", b =>
                 {
-                    b.HasOne("DeviceManagerBackend.Entities.Space", null)
+                    b.HasOne("DeviceManagerBackend.Entities.Space", "Space")
                         .WithMany("Rooms")
                         .HasForeignKey("SpaceId");
+
+                    b.Navigation("Space");
                 });
 
             modelBuilder.Entity("DeviceManagerBackend.Entities.Room", b =>

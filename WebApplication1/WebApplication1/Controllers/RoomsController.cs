@@ -68,5 +68,13 @@ namespace DeviceManagerBackend.Controllers
             _roomService.UpdateRoom(updateRoom, id);
             return Ok();
         }
+
+        [HttpPut("room/{roomId}/space/{spaceId}")]
+
+        public IActionResult AssignRoom(int roomId, int spaceId)
+        {
+            _roomService.AssignRoom(roomId, spaceId);
+            return Ok();
+        }
     }
 }

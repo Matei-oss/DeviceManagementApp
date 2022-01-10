@@ -13,10 +13,13 @@ namespace DeviceManagerBackend.Repositories
         private readonly ApplicationDbContext _context;
 
         private readonly IMapper _mapper;
-        public RoomRepository(ApplicationDbContext context, IMapper mapper)
+
+        private readonly ISpaceRepository _spaceRepository;
+        public RoomRepository(ApplicationDbContext context, IMapper mapper, ISpaceRepository spaceRepository)
         {
             _context = context;
             _mapper = mapper;
+            _spaceRepository = spaceRepository;
         }
 
         public void AddRoom(CreateRoom inputRoom)
@@ -61,6 +64,17 @@ namespace DeviceManagerBackend.Repositories
             roomReturned.Type = roomMapped.Type;
             roomReturned.Capacity = roomMapped.Capacity;
 
+            _context.SaveChanges();
+        }
+
+        public void AssignRoom(int roomId, int spaceId)
+        {
+            var room = GetRoomById(roomId);
+            var space = _spaceRepository.GetSpaceById(spaceId);
+
+
+            space.Rooms.Add(room);
+            room.Space = space;
             _context.SaveChanges();
         }
     }
