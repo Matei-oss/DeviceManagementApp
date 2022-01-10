@@ -8,7 +8,7 @@ using DeviceManagerBackend.Constants;
 
 namespace DeviceManagerBackend.Controllers
 {
-    //[Authorize(Role = Roles.Administrator)]
+    [Authorize(Role = Roles.Administrator)]
     [Route("api/[controller]")]
     [ApiController]
     public class DevicesController : ControllerBase

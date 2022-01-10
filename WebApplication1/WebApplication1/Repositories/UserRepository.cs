@@ -19,7 +19,7 @@ namespace DeviceManagerBackend.Repositories
         }
         public User GetUserByEmailAddress(string emailAddress)
         {
-            return _context.Users.FirstOrDefault(x => x.EmailAddress == emailAddress);
+            return _context.Users.Include(x => x.Spaces).FirstOrDefault(x => x.EmailAddress == emailAddress);
         }
 
         public List<User> GetAllUsers()

@@ -37,8 +37,9 @@ namespace DeviceManagerBackend.Services
             {
                 Subject = new ClaimsIdentity(new[] {
 
-                    new Claim(ClaimTypes.Name, user.LastName),
-                    new Claim(ClaimTypes.Role, user.Role.ToString())
+                    new Claim(ClaimTypes.Email, user.EmailAddress),
+                    new Claim(ClaimTypes.Role, user.Role.ToString()),
+                    new Claim("SpaceList",string.Join(",", user.Spaces.Select(x => x.Name)))
                 }),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
