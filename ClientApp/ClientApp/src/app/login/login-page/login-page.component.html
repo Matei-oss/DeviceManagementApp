@@ -1,5 +1,33 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+        <mat-card-header> 
+            <img class="logo" src="https://coollogo.net/wp-content/uploads/2021/03/Steelcase-Logo-logo.svg">
+            <!-- <mat-card-title>Steelcase</mat-card-title> -->
+        </mat-card-header>
+        <mat-card-header> 
+            <mat-card-title>Device Manager</mat-card-title>
+        </mat-card-header>
+        
+  
+      <form [formGroup]="form" (ngSubmit)="submitForm()" class="example-form">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" type="text" [formControlName]="'username'">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="password" [formControlName]="'password'">
+          </mat-form-field>
+        </mat-card-content>
+        <button type="submit" mat-stroked-button color="accent" class="btn-block">Log in</button>
+      </form>
+    </mat-card>
+  
+  </div>
+<!-- 
 <form [formGroup]="form" (ngSubmit)="submitForm()">
     <input type="text" [formControlName]="'username'"/>
     <input type="password" [formControlName]="'password'"/>
     <button type="submit">Submit</button>
-</form>
+</form> -->
