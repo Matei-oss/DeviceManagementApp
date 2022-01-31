@@ -12,7 +12,7 @@ export class LoginService {
 
   }
 
-  public login(userName: string, password: string): Observable<any>{
+  public login$(userName: string, password: string): Observable<string>{
     
 
       // Initialize Params Objectlet 
