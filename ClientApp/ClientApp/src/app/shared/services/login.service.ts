@@ -26,8 +26,9 @@ export class LoginService {
 
     return this.http.get(
       'https://localhost:7288/api/Authorization',
-       {
-        params
+      {
+        params,
+        responseType: 'text'
       }
     );
   }
