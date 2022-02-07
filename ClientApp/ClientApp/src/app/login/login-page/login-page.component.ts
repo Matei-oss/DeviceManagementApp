@@ -22,7 +22,7 @@ export class LoginPageComponent implements OnInit {
   submitForm(){
     if (this.form.valid){
       this.loginService.login$(this.form.getRawValue().username, this.form.getRawValue().password).subscribe((value) => {
-        localStorage.setItem('userToken', value);
+        this.loginService.setUserToken(value);
         this.router.navigate(['/device']);
       });
     } else {

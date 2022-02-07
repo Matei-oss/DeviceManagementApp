@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
+
+  private readonly key = "userToken";
+
   constructor(private http: HttpClient) { 
     
 
@@ -31,6 +34,19 @@ export class LoginService {
         responseType: 'text'
       }
     );
+  }
+
+  public setUserToken(value: string){
+    localStorage.setItem(this.key, value);
+  }
+  public isUserLogged(): boolean{
+    if(localStorage.getItem(this.key)){
+      return true;
+    }else
+    {
+      return false;
+    }
+    
   }
 }
 

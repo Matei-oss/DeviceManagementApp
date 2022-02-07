@@ -18,4 +18,8 @@ export class DeviceComponent implements OnInit {
       console.log(x);
     })
   }
+
+  onClick(){
+    this.deviceService.getDevices$();
+  }
 }
