@@ -30,11 +30,6 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
