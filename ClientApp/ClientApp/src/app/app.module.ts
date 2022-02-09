@@ -9,6 +9,12 @@ import {MatInputModule} from '@angular/material/input';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 
 
@@ -23,7 +29,12 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
     FormsModule,
     BrowserAnimationsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
