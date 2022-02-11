@@ -11,6 +11,8 @@ export class DeviceComponent implements OnInit {
 
   devices = [];
 
+  pageTitle = 'Devices';
+
   constructor(private deviceService: DeviceService) { }
   ngOnInit(): void {
     this.deviceService.getDevices$().subscribe((x) => {

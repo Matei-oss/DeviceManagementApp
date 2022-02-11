@@ -4,23 +4,22 @@ import { DeviceComponent } from './device-page/device.component';
 import { DeviceRoutingModule } from './device-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     DeviceComponent
   ],
   imports: [
-    CommonModule,
     DeviceRoutingModule,
     FlexLayoutModule,
-    MatInputModule
+    SharedModule
   ],
   exports:[
     DeviceComponent
   ],
   entryComponents:[
     DeviceComponent
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  ]
 })
 export class DeviceModule { }

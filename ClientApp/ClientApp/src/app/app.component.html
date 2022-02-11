@@ -1,2 +1,7 @@
-<app-sidebar *ngIf = "isUserLogged()"></app-sidebar>
-<router-outlet></router-outlet>
+<app-sidebar *ngIf = "isUserLogged() else loginPage">
+    <router-outlet></router-outlet>
+</app-sidebar>
+
+<ng-template #loginPage>
+    <router-outlet></router-outlet>
+</ng-template>
