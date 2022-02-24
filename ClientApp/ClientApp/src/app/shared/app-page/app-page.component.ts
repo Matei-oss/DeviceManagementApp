@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-app-page',
@@ -8,12 +9,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AppPageComponent implements OnInit {
 
   @Input() title = '';
-   
+  @Output() onNavigate = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public onNavigateClick(){
+    this.onNavigate.emit('');
+  }
 }
 
 

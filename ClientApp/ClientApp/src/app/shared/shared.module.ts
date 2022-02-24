@@ -17,8 +17,9 @@ import { AppPageComponent } from './app-page/app-page.component';
   ],
   imports: [
     AngularMaterialModule,
-    // CommonModule,
+    CommonModule,
     // BrowserModule
+    
     
   ],
   exports:[

@@ -13,4 +13,11 @@ export class DeviceService {
     return this.http.get(
       'https://localhost:7288/api/Devices')
   }
+
+  public addDevice$(device: any): Observable<any>{
+      return this.http.post(
+        'https://localhost:7288/api/Devices',
+        device
+      )
+  }
 }

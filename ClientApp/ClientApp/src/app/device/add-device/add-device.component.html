@@ -1,0 +1,20 @@
+<app-app-page [title]='pageTitle' (onNavigate)="navigateToAddPage()"> </app-app-page>
+
+<mat-card>
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="example-form">
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" type="text" [formControlName]="'name'">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Mac Address" type="text" [formControlName]="'macAddress'">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Firmware Version" type="text" [formControlName]="'firmwareVersion'">
+      </mat-form-field>
+    </mat-card-content>
+    <button [disabled]="form.valid" type="submit" mat-stroked-button color="accent" class="btn-block">Submit device</button>
+  </form>
+</mat-card>

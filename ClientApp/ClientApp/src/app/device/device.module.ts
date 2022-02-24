@@ -5,15 +5,20 @@ import { DeviceRoutingModule } from './device-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
 import { SharedModule } from '../shared/shared.module';
+import { AddDeviceComponent } from './add-device/add-device.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    DeviceComponent
+    DeviceComponent,
+    AddDeviceComponent
   ],
   imports: [
     DeviceRoutingModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports:[
     DeviceComponent
